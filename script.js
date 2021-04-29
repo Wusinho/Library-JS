@@ -1,12 +1,16 @@
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+/* eslint-disable max-classes-per-file */
+
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
 class UI {
-  addBooktoList(book) {
+  static addBooktoList(book) {
     const list = document.getElementById('book-list');
     const row = document.createElement('tr');
     row.innerHTML = `
@@ -19,13 +23,13 @@ class UI {
     list.appendChild(row);
   }
 
-  deleteBook(target) {
+  static deleteBook(target) {
     if (target.className === 'delete') {
       target.parentElement.parentElement.remove();
     }
   }
 
-  clearFields() {
+  static clearFields() {
     document.getElementById('title').value = '';
     document.getElementById('author').value = '';
     document.getElementById('pages').value = '';
@@ -40,11 +44,10 @@ document.getElementById('book-form').addEventListener('submit', (e) => {
   const read = document.getElementById('read').value;
 
   const book = new Book(title, author, pages, read);
-  const ui = new UI();
 
   if (title && author && pages) {
-    ui.addBooktoList(book);
-    ui.clearFields();
+    UI.addBooktoList(book);
+    UI.clearFields();
   }
 
   e.preventDefault();
