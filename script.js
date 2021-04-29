@@ -42,7 +42,7 @@ document.getElementById("book-form").addEventListener("submit", function (e) {
 
   const book = new Book(title, author, pages, read);
   console.log(book);
-  const UI = new UI();
+  const ui = new UI();
 
   if (title === "" || author === "" || pages === "") {
     alert("please fill all the fields");
