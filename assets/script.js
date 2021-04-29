@@ -9,7 +9,7 @@ function Book(title, author, pages, read) {
 
 class UI {
   constructor() {
-      addBooktoList(book){
+      addBooktoList(book) {
         const list = document.getElementById("book-list");
         const row = document.createElement("tr");
         row.innerHTML = 
@@ -20,6 +20,20 @@ class UI {
           <td> ${book.read} </td>
           <td><a href="" class="delete">X</a></td>
         `;
-      };
+        list.appendChild(row);
+      }
+      deleteBook(target) {
+          if (target.className === 'delete') {
+              target.parentElement.removeChild(target);
+          }
+      }
+      clearFields() {
+          document.getElementById('title').value = '';
+          document.getElementById('author').value = '';
+          document.getElementById('pages').value = '';
+          document.getElementById('read').value = '';
+      }
   }
 }
+
+
