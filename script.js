@@ -1,13 +1,16 @@
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+/* eslint-disable max-classes-per-file */
+
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
 }
 
 class UI {
-  constructor() {}
-  addBooktoList(book) {
+  static addBooktoList(book) {
     const list = document.getElementById("book-list");
     const row = document.createElement("tr");
     row.innerHTML = `
@@ -20,20 +23,21 @@ class UI {
     list.appendChild(row);
   }
 
-  deleteBook(target) {
+  static deleteBook(target) {
     if (target.className === "delete") {
       target.parentElement.parentElement.remove();
     }
   }
 
-  clearFields() {
+  static clearFields() {
     document.getElementById("title").value = "";
     document.getElementById("author").value = "";
     document.getElementById("pages").value = "";
+    document.getElementById("read").value = "";
   }
 }
 
-document.getElementById("book-form").addEventListener("submit", function (e) {
+document.getElementById("book-form").addEventListener("submit", (e) => {
   const title = document.getElementById("title").value;
   const author = document.getElementById("author").value;
   const pages = document.getElementById("pages").value;
@@ -41,18 +45,15 @@ document.getElementById("book-form").addEventListener("submit", function (e) {
 
   const book = new Book(title, author, pages, read);
 
-  const ui = new UI();
-
   if (title && author && pages) {
-    ui.addBooktoList(book);
-    ui.clearFields();
-  } else {
-    alert("please fill all the fields");
+    UI.addBooktoList(book);
+    UI.clearFields();
   }
+
   e.preventDefault();
 });
 
-document.getElementById("book-list").addEventListener("click", function (e) {
+document.getElementById("book-list").addEventListener("click", (e) => {
   const ui = new UI();
   ui.deleteBook(e.target);
   e.preventDefault();
