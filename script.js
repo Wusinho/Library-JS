@@ -30,7 +30,6 @@ class UI {
     document.getElementById("title").value = "";
     document.getElementById("author").value = "";
     document.getElementById("pages").value = "";
-    document.getElementById("read").value = "";
   }
 }
 
@@ -41,14 +40,14 @@ document.getElementById("book-form").addEventListener("submit", function (e) {
   const read = document.getElementById("read").value;
 
   const book = new Book(title, author, pages, read);
-  console.log(book);
+
   const ui = new UI();
 
-  if (title === "" || author === "" || pages === "") {
-    alert("please fill all the fields");
-  } else {
+  if (title && author && pages) {
     ui.addBooktoList(book);
     ui.clearFields();
+  } else {
+    alert("please fill all the fields");
   }
   e.preventDefault();
 });
