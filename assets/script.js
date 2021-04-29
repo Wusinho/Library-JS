@@ -37,3 +37,32 @@ class UI {
 }
 
 
+document.getElementById('book-form').addEventListener('submit', function (e) {
+    const title = document.getElementById('title').value
+    const author = document.getElementById('author').value
+    const pages = document.getElementById('pages').value
+    const read = document.getElementById('read').value
+
+    const book = new Book(title, author, pages, read)
+
+    const UI = new UI()
+
+    if (title == '' || author == '' || pages == '') {
+        alert('please fill all the fields')
+    } else {
+        ui.addBooktoList(book)
+        ui.clearFields()
+
+    }
+
+
+
+    e.preventDefault();
+
+} )
+
+
+
+
+
+
