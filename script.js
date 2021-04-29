@@ -7,8 +7,8 @@ function Book(title, author, pages, read) {
 
 class UI {
   addBooktoList(book) {
-    const list = document.getElementById("book-list");
-    const row = document.createElement("tr");
+    const list = document.getElementById('book-list');
+    const row = document.createElement('tr');
     row.innerHTML = `
           <td>${book.title}</td>
           <td>${book.author}</td>
@@ -20,24 +20,24 @@ class UI {
   }
 
   deleteBook(target) {
-    if (target.className === "delete") {
+    if (target.className === 'delete') {
       target.parentElement.parentElement.remove();
     }
   }
 
   clearFields() {
-    document.getElementById("title").value = "";
-    document.getElementById("author").value = "";
-    document.getElementById("pages").value = "";
-    document.getElementById("read").value = "";
+    document.getElementById('title').value = '';
+    document.getElementById('author').value = '';
+    document.getElementById('pages').value = '';
+    document.getElementById('read').value = '';
   }
 }
 
-document.getElementById("book-form").addEventListener("submit", (e) => {
-  const title = document.getElementById("title").value;
-  const author = document.getElementById("author").value;
-  const pages = document.getElementById("pages").value;
-  const read = document.getElementById("read").value;
+document.getElementById('book-form').addEventListener('submit', (e) => {
+  const title = document.getElementById('title').value;
+  const author = document.getElementById('author').value;
+  const pages = document.getElementById('pages').value;
+  const read = document.getElementById('read').value;
 
   const book = new Book(title, author, pages, read);
   const ui = new UI();
@@ -50,7 +50,7 @@ document.getElementById("book-form").addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
-document.getElementById("book-list").addEventListener("click", (e) => {
+document.getElementById('book-list').addEventListener('click', (e) => {
   const ui = new UI();
   ui.deleteBook(e.target);
   e.preventDefault();
