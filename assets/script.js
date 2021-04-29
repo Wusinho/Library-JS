@@ -54,13 +54,14 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
         ui.clearFields()
 
     }
-
-
-
     e.preventDefault();
-
 } )
 
+document.getElementById('book-list').addEventListener('click', function (e){
+    const ui = new UI();
+    ui.deleteBook(e.target);
+    e.preventDefault()
+})
 
 
 
