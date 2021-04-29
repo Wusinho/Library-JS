@@ -78,9 +78,9 @@ Feel free to check the [issues page](https://github.com/Wusinho/Library-JS/issue
 
 ## 📝 License
 
-This project is [MIT](LICENSE.md) licensed.
+This project is [MIT](license) licensed.
 
-- ...
+
 **
 Give a ⭐️ if you like this project!
 
