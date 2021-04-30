@@ -37,14 +37,19 @@ class UI {
 }
 
 document.getElementById("book-form").addEventListener("submit", (e) => {
-  const title = document.getElementById("title").value;
-  const author = document.getElementById("author").value;
-  const pages = document.getElementById("pages").value;
-  const read = document.getElementById("read").value;
+  const book = Object.create(Book);
 
-  const book = new Book(title, author, pages, read);
+  book.title = document.getElementById("title").value;
+  book.author = document.getElementById("author").value;
+  book.pages = document.getElementById("pages").value;
+  book.read = document.getElementById("read").value;
 
-  if (title && author && pages) {
+  for (const [key, value] of Object.entries(book)) {
+    console.log(`${key}: ${value}`);
+  }
+  //book(title, author, pages, read);
+
+  if (book.title && book.author && book.pages) {
     UI.addBooktoList(book);
     UI.clearFields();
   }
