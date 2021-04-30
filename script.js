@@ -8,7 +8,12 @@ class Book {
     this.read = read;
   }
 }
-
+function change(e) {
+  const elem = document.getElementById(e.target.id);
+  elem.innerHTML === "Read"
+    ? (elem.innerHTML = "Unread")
+    : (elem.innerHTML = "Read");
+}
 class UI {
   static addBooktoList(book) {
     const list = document.getElementById("book-list");
@@ -17,10 +22,12 @@ class UI {
           <td>${book.title}</td>
           <td>${book.author}</td>
           <td>${book.pages}</td>
-          <td>${book.read}</td>
+          <td ><button class="btn btn-success" id=${book.id} >${book.read}</button></td>
           <td><a href="" class="delete">X</a></td>
         `;
     list.appendChild(row);
+    const td = document.getElementById(book.id);
+    td.addEventListener("click", (e) => change(e));
   }
 
   static deleteBook(target) {
