@@ -16,8 +16,8 @@ function change(e) {
 }
 class UI {
   static addBooktoList(book) {
-    const list = document.getElementById('book-list');
-    const row = document.createElement('tr');
+    const list = document.getElementById("book-list");
+    const row = document.createElement("tr");
     row.innerHTML = `
           <td>${book.title}</td>
           <td>${book.author}</td>
@@ -31,28 +31,20 @@ class UI {
   }
 
   static deleteBook(target) {
-    if (target.className === 'delete') {
+    if (target.className === "delete") {
       target.parentElement.parentElement.remove();
     }
   }
 
   static clearFields() {
-    document.getElementById('title').value = '';
-    document.getElementById('author').value = '';
-    document.getElementById('pages').value = '';
+    document.getElementById("title").value = "";
+    document.getElementById("author").value = "";
+    document.getElementById("pages").value = "";
   }
 }
 
-<<<<<<< HEAD
-document.getElementById('book-form').addEventListener('submit', (e) => {
-  const title = document.getElementById('title').value;
-  const author = document.getElementById('author').value;
-  const pages = document.getElementById('pages').value;
-  const read = document.getElementById('read').value;
-=======
 document.getElementById("book-form").addEventListener("submit", (e) => {
   const book = Object.create(Book);
->>>>>>> Dev-feature-H
 
   book.title = document.getElementById("title").value;
   book.author = document.getElementById("author").value;
@@ -72,7 +64,7 @@ document.getElementById("book-form").addEventListener("submit", (e) => {
   e.preventDefault();
 });
 
-document.getElementById('book-list').addEventListener('click', (e) => {
+document.getElementById("book-list").addEventListener("click", (e) => {
   UI.deleteBook(e.target);
   e.preventDefault();
 });
