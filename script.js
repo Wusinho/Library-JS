@@ -1,13 +1,23 @@
 /* eslint-disable max-classes-per-file */
 
-class Book {
-  constructor(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-  }
+// class Book {
+//   constructor(title, author, pages, read) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+//   }
+// }
+
+function Book(title, author, pages, read) {
+  return {
+    title,
+    author,
+    pages,
+    read,
+  };
 }
+
 function change(e) {
   const elem = document.getElementById(e.target.id);
   if (elem.innerHTML === 'Read') elem.innerHTML = 'Unread';
@@ -21,8 +31,8 @@ class UI {
           <td>${book.title}</td>
           <td>${book.author}</td>
           <td>${book.pages}</td>
-          <td ><button class="btn btn-success" id=${book.id} >${book.read}</button></td>
-          <td><a href="" class="delete">X</a></td>
+          <td ><button class='btn btn-success' id=${book.id} >${book.read}</button></td>
+          <td><a href='' class='delete'>X</a></td>
         `;
     list.appendChild(row);
     const td = document.getElementById(book.id);
